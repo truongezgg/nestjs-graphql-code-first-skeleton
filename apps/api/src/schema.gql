@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Company {
+  children: [Company!]!
+  cost: Float!
+  createdAt: String!
+  id: String!
+  name: String!
+  parentId: String!
+}
+
+type Query {
+  companies: [Company!]!
+  company(id: String!): Company!
+  travel(id: String!): Travel!
+  travels: [Travel!]!
+}
+
+type Travel {
+  """Example field (placeholder)"""
+  companyId: String!
+
+  """Example field (placeholder)"""
+  createdAt: String!
+
+  """Example field (placeholder)"""
+  departure: String!
+
+  """Example field (placeholder)"""
+  destination: String!
+
+  """Example field (placeholder)"""
+  employeeName: String!
+
+  """Example field (placeholder)"""
+  id: String!
+
+  """Example field (placeholder)"""
+  price: String!
+}
