@@ -15,10 +15,14 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+  it('/ (GET) companies', async () => {
+    const result = await request(app.getHttpServer()).post('/graphql').send({
+      query:
+        '{ companies { id createdAt name parentId cost children { id createdAt name parentId cost children { id createdAt name parentId cost children { id createdAt name parentId cost } } } } } ',
+    });
+
+    const data = JSON.parse(result.text);
+
+    return expect(data.data.companies.length).toEqual(20);
   });
 });

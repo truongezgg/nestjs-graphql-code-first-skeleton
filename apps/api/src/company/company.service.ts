@@ -1,13 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { companies } from '@app/database/data/companies';
 import { travels } from '@app/database/data/travels';
+import { TravelService } from '../travel/travel.service';
 
 @Injectable()
 export class CompanyService {
+  constructor(private readonly travelService: TravelService) {}
+
   findAll() {
     return companies.map((item) => ({
       ...item,
-      cost: this.calculateCost(item.id),
+      cost: this.travelService.calculateCost(item.id),
     }));
   }
 
@@ -15,7 +18,7 @@ export class CompanyService {
     const company = companies.find((item) => item.id === id);
     if (!company) return;
 
-    return { ...company, cost: this.calculateCost(company.id) };
+    return { ...company, cost: this.travelService.calculateCost(company.id) };
   }
 
   findChildren(parentId: string) {
@@ -23,16 +26,7 @@ export class CompanyService {
 
     return children.map((item) => ({
       ...item,
-      cost: this.calculateCost(item.id),
+      cost: this.travelService.calculateCost(item.id),
     }));
-  }
-
-  calculateCost(companyId: string) {
-    const travelList = travels.filter((item) => item.companyId === companyId);
-
-    return travelList.reduce((acc, cur) => {
-      acc += Number(cur.price) || 0;
-      return acc;
-    }, 0);
   }
 }

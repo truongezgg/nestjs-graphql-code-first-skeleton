@@ -4,5 +4,6 @@ import { TravelResolver } from './travel.resolver';
 
 @Module({
   providers: [TravelResolver, TravelService],
+  exports: [TravelService],
 })
 export class TravelModule {}

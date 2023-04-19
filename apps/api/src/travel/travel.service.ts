@@ -10,4 +10,13 @@ export class TravelService {
   findOne(id: string) {
     return travels.find((item) => item.id === id);
   }
+
+  calculateCost(companyId: string) {
+    const travelList = travels.filter((item) => item.companyId === companyId);
+
+    return travelList.reduce((acc, cur) => {
+      acc += Number(cur.price) || 0;
+      return acc;
+    }, 0);
+  }
 }
