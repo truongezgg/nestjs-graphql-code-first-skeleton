@@ -1,4 +1,9 @@
+## NestJS Monorepo mode
+https://docs.nestjs.com/cli/monorepo
+
 ## Description
+
+NestJS & GraphQL skeleton project
 
 Nguyen Duy Truong | truongezgg@gmail.com
 
