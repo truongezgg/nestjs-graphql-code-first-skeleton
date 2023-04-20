@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TravelService } from './travel.service';
+import { forwardRef } from '@nestjs/common';
+import { CompanyModule } from '../company/company.module';
 
 // npm run test apps/api/src/travel/travel.service.spec.ts
 describe('TravelService', () => {
@@ -17,6 +19,7 @@ describe('TravelService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [forwardRef(() => CompanyModule)],
       providers: [TravelService],
     }).compile();
 
