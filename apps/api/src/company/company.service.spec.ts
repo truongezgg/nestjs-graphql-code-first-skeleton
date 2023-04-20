@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CompanyService } from './company.service';
 import { TravelModule } from '../travel/travel.module';
+import { forwardRef } from '@nestjs/common';
 
 // npm run test apps/api/src/company/company.service.spec.ts
 describe('CompanyService', () => {
@@ -8,7 +9,7 @@ describe('CompanyService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [TravelModule],
+      imports: [forwardRef(() => TravelModule)],
       providers: [CompanyService],
     }).compile();
 
@@ -30,7 +31,6 @@ describe('CompanyService', () => {
       createdAt: '2021-02-25T15:16:30.887Z',
       name: 'Blanda, Langosh and Barton',
       parentId: 'uuid-1',
-      cost: 3847,
     };
 
     const result = service.findOne(company.id);

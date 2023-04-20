@@ -1,16 +1,14 @@
-import {
-  Resolver,
-  Query,
-  Args,
-  ResolveProperty,
-  Parent,
-} from '@nestjs/graphql';
+import { Resolver, Query, Args, ResolveField, Parent } from '@nestjs/graphql';
 import { CompanyService } from './company.service';
 import { Company } from './entities/company.entity';
+import { TravelService } from '../travel/travel.service';
 
 @Resolver(() => Company)
 export class CompanyResolver {
-  constructor(private readonly companyService: CompanyService) {}
+  constructor(
+    private readonly travelService: TravelService,
+    private readonly companyService: CompanyService,
+  ) {}
 
   @Query(() => Company, { name: 'company' })
   findOne(@Args('id') id: string) {
@@ -22,8 +20,13 @@ export class CompanyResolver {
     return this.companyService.findAll();
   }
 
-  @ResolveProperty('children', () => [Company], { name: 'children' })
+  @ResolveField('children', () => [Company], { name: 'children' })
   findChildren(@Parent() company: Company) {
     return this.companyService.findChildren(company.id);
+  }
+
+  @ResolveField('cost', () => Number, { name: 'cost' })
+  calcCost(@Parent() company: Company) {
+    return this.travelService.calculateCompanyTotalCost(company.id);
   }
 }

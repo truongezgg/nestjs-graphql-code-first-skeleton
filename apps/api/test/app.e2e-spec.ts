@@ -23,6 +23,7 @@ describe('AppController (e2e)', () => {
 
     const data = JSON.parse(result.text);
 
+    expect(data.data.companies[0].cost).toEqual(52983);
     return expect(data.data.companies.length).toEqual(20);
   });
 });
