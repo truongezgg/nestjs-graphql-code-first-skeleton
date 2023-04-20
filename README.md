@@ -1,4 +1,5 @@
 ## NestJS Monorepo mode
+
 https://docs.nestjs.com/cli/monorepo
 
 ## Description
@@ -91,14 +92,14 @@ $ npm run test:e2e
         "createdAt": "2021-02-26T00:55:36.632Z",
         "name": "Webprovise Corp",
         "parentId": "0",
-        "cost": 1221,
+        "cost": 52983,
         "children": [
           {
             "id": "uuid-2",
             "createdAt": "2021-02-25T10:35:32.978Z",
             "name": "Stamm LLC",
             "parentId": "uuid-1",
-            "cost": 1429,
+            "cost": 5199,
             "children": [
               {
                 "id": "uuid-4",
@@ -131,7 +132,7 @@ $ npm run test:e2e
             "createdAt": "2021-02-25T15:16:30.887Z",
             "name": "Blanda, Langosh and Barton",
             "parentId": "uuid-1",
-            "cost": 3847,
+            "cost": 15713,
             "children": [
               {
                 "id": "uuid-5",
@@ -180,7 +181,7 @@ $ npm run test:e2e
             "createdAt": "2021-02-25T23:47:57.596Z",
             "name": "Bartell - Mosciski",
             "parentId": "uuid-1",
-            "cost": 2605,
+            "cost": 28817,
             "children": [
               {
                 "id": "uuid-10",
@@ -195,7 +196,7 @@ $ npm run test:e2e
                 "createdAt": "2021-02-26T00:32:01.307Z",
                 "name": "Parker - Shanahan",
                 "parentId": "uuid-8",
-                "cost": 2872,
+                "cost": 12236,
                 "children": [
                   {
                     "id": "uuid-12",
@@ -254,7 +255,7 @@ $ npm run test:e2e
         "createdAt": "2021-02-25T10:35:32.978Z",
         "name": "Stamm LLC",
         "parentId": "uuid-1",
-        "cost": 1429,
+        "cost": 5199,
         "children": [
           {
             "id": "uuid-4",
@@ -287,7 +288,7 @@ $ npm run test:e2e
         "createdAt": "2021-02-25T15:16:30.887Z",
         "name": "Blanda, Langosh and Barton",
         "parentId": "uuid-1",
-        "cost": 3847,
+        "cost": 15713,
         "children": [
           {
             "id": "uuid-5",
@@ -368,7 +369,7 @@ $ npm run test:e2e
         "createdAt": "2021-02-25T23:47:57.596Z",
         "name": "Bartell - Mosciski",
         "parentId": "uuid-1",
-        "cost": 2605,
+        "cost": 28817,
         "children": [
           {
             "id": "uuid-10",
@@ -383,7 +384,7 @@ $ npm run test:e2e
             "createdAt": "2021-02-26T00:32:01.307Z",
             "name": "Parker - Shanahan",
             "parentId": "uuid-8",
-            "cost": 2872,
+            "cost": 12236,
             "children": [
               {
                 "id": "uuid-12",
@@ -450,7 +451,7 @@ $ npm run test:e2e
         "createdAt": "2021-02-26T00:32:01.307Z",
         "name": "Parker - Shanahan",
         "parentId": "uuid-8",
-        "cost": 2872,
+        "cost": 12236,
         "children": [
           {
             "id": "uuid-12",
